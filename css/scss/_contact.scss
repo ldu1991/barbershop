@@ -1,0 +1,270 @@
+.contact {
+    @extend .catalog;
+    padding-bottom: 0;
+
+    .contact-title {
+        @extend .category-title;
+    }
+
+    .better {
+        @include font-rem(400, 14, 40);
+        font-family: Tahoma, Geneva, sans-serif;
+        width: 200px;
+    	height: 40px;
+    	border-radius: 5px 5px 0 0;
+    	background-color: #c53411;
+        position: fixed;
+        top: 40%;
+        right: 0;
+        color: #fff;
+        text-align: center;
+        transform: rotate(-90deg);
+        transform-origin: 100% 100%;
+        z-index: 10;
+
+        @include max-screen(1199px) {
+            display: none;
+        }
+
+    }
+
+    &__info {
+        padding: 50px 0 100px;
+
+        &--description {
+            @include font-rem(400, 14, 18);
+            font-family: Tahoma, Geneva, sans-serif;
+            color: #28282c;
+
+            p {
+                padding-bottom: 10px;
+            }
+
+            @include max-screen(767px) {
+                padding-bottom: 20px;
+            }
+
+        }
+
+        &--communications {
+
+            .title {
+                @include font-rem(400, 24, 26);
+                color: #000;
+                border-bottom: 1px solid #e8e8e8;
+                display: block;
+                margin-bottom: 30px;
+                padding-bottom: 3px;
+
+                @include max-screen(991px) {
+                    margin-bottom: 10px;
+                }
+
+            }
+
+            .communicat {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .col {
+                    padding: 10px 0;
+                }
+
+                span {
+                    @include font-rem(400, 14, 18);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    color: #666;
+                    display: block;
+                }
+
+                a, p {
+                    @include font-rem(400, 30, 32);
+                    display: block;
+                    color: #70717e;
+                }
+
+            }
+
+        }
+
+    }
+
+    &__call_back_map {
+        background-color: #eaeaee;
+        position: relative;
+
+        .call_back {
+            position: relative;
+            z-index: 99;
+            background-color: #eaeaee;
+            width: 40%;
+            height: 750px;
+            padding: 30px 40px 30px 0;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateX(100%);
+            	width: 0;
+            	height: 0;
+            	border-top: 375px solid transparent;
+            	border-left: 70px solid #eaeaee;
+            	border-bottom: 375px solid transparent;
+
+                @include max-screen(991px) {
+                    display: none;
+                }
+
+            }
+
+            .call-title {
+                @include font-rem(400, 24, 26);
+                color: #000;
+                border-bottom: 1px solid #c9c9c9;
+                display: block;
+                margin-bottom: 30px;
+                padding-bottom: 3px;
+            }
+
+            label {
+                display: block;
+                padding: 8px 0;
+                position: relative;
+
+                .title {
+                    @include font-rem(400, 14, 20);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    display: block;
+                    color: #666;
+                    padding-bottom: 3px;
+                }
+
+            }
+
+            [type="text"],
+            [type="password"],
+            [type="email"] {
+                @include font-rem(400, 14, 26);
+                font-family: Tahoma, Geneva, sans-serif;
+                display: block;
+                width: 100%;
+                height: 30px;
+                border: 2px solid #b8b9c6;
+                background-color: #FFF;
+                padding: 0 15px;
+                color: #000;
+            }
+
+            textarea {
+                @include font-rem(400, 14, 22);
+                font-family: Tahoma, Geneva, sans-serif;
+                display: block;
+                width: 100%;
+                height: 140px;
+                border: 2px solid #b8b9c6;
+                background-color: #FFF;
+                padding: 0 15px;
+                color: #000;
+            }
+
+            .submit {
+                @include clearfix;
+                padding-top: 10px;
+
+                input[type="submit"] {
+                    @include font-rem(400, 18, 36);
+                    border: 0;
+                    background-color: #000;
+                    color: #fff;
+                    display: block;
+                    width: 100%;
+                    height: 36px;
+                    max-width: 160px;
+                    position: relative;
+                    float: right;
+
+                    @include max-screen(767px) {
+                        float: none;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+
+                }
+
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+
+            .false-input {
+                @include font-rem(400, 14, 26);
+                font-family: Tahoma, Geneva, sans-serif;
+                width: 100%;
+                height: 30px;
+                border: 2px solid #b8b9c6;
+                display: block;
+                background-color: #fff;
+                padding: 0 15px;
+                color: #000;
+                position: relative;
+                z-index: 99;
+                cursor: pointer;
+            }
+
+
+            @include max-screen(991px) {
+                width: 50%;
+            }
+
+            @include max-screen(767px) {
+                width: 100%;
+                padding: 30px 0;  
+            }
+
+        }
+
+        .map {
+            width: 57%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+
+            iframe,
+            object,
+            embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            @include max-screen(991px) {
+                width: 53%;
+            }
+
+            @include max-screen(767px) {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                right: auto;
+                width: 100%;
+                height: 0;
+                padding-bottom: 60%;
+            }
+
+        }
+
+    }
+
+}
+
+
+.ymaps-layers-pane {
+  -webkit-filter: saturate(0) brightness(0.75) contrast(1.5) invert(1);
+  filter: saturate(0) brightness(0.75) contrast(1.5) invert(1); }

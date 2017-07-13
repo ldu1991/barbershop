@@ -1,0 +1,364 @@
+//////////////////////////////////////////////
+// HEADER
+//////////////////////////////////////////////
+.site-header {
+    padding-top: 10px;
+    border-bottom: 1px solid #e7e7ec;
+    position: relative;
+    padding-bottom: 65px;
+
+    &__sitebar {
+        background-color: #000;
+
+        a.link {
+            @include font-rem(400, 14, 32);
+            font-family: Tahoma, Geneva, sans-serif;
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 6px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                height: 1px;
+                border-bottom: 1px dashed rgba(255, 255, 255, .7);
+                transition: all 0.3s ease-in-out;
+
+                @include max-screen(575px) {
+                    bottom: 6px;
+                }
+
+            }
+
+            &:hover {
+                text-decoration: none;
+
+                &:before {
+                    width: 0;
+                }
+
+            }
+
+            @include max-screen(575px) {
+                line-height: 36px;
+            }
+
+        }
+
+        .delimiter {
+            line-height: 32px;
+            padding: 0 5px;
+            color: #fff;
+
+            @include max-screen(575px) {
+                line-height: 36px;
+            }
+
+        }
+
+        a.card {
+            @include font-rem(400, 18, 32);
+            color: #fff;
+            padding-left: 28px;
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                @extend %card;
+            }
+
+            @include max-screen(575px) {
+                line-height: 36px;
+            }
+
+        }
+
+    }
+
+    &__search-contact {
+        min-height: 73px;
+        position: relative;
+
+        .logo {
+            display: inline-block;
+            width: auto;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #000;
+            z-index: 9;
+
+            @include max-screen(575px) {
+                top: 0;
+                right: 15px;
+                left: auto;
+                transform: translateY(-100%);
+            }
+
+        }
+
+        .telephone {
+            padding-top: 10px;
+
+            a {
+                @include font-rem(400, 38, 40);
+                display: block;
+                color: $color_text_a;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+                @include max-screen(575px) {
+                    @include font-rem(400, 30, 36);
+                }
+
+            }
+
+            .tel-info {
+                display: block;
+                @include font-rem(400, 14, 16);
+                font-family: Tahoma, Geneva, sans-serif;
+                color: $color_text_a;
+            }
+
+        }
+
+        .schedule {
+            @include font-rem(400, 24, 68);
+            color: $color_text_a;
+
+            span {
+                @include font-rem(400, 16, 68);
+                font-family: Tahoma, Geneva, sans-serif;
+            }
+
+        }
+
+        .search {
+            display: block;
+            position: relative;
+            margin-top: 22px;
+
+            [type="text"] {
+                @include font-rem(400, 14, 26, italic);
+                font-family: Verdana, Geneva, sans-serif;
+                width: 100%;
+                height: 30px;
+                background-color: #FFF;
+                border: 2px solid #babbc8;
+                padding-left: 15px;
+                padding-right: 35px;
+                color: #88858b;
+                @include placeholder($color_text_a);
+
+                @include max-screen(575px) {
+                    height: 50px;
+                    line-height: 46px;
+                }
+
+            }
+
+            [type="submit"] {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 28px;
+                background: #babbc8 url(../images/search.png) no-repeat center center;
+                border: 0;
+
+                @include max-screen(575px) {
+                    width: 32px;
+                }
+
+            }
+
+        }
+
+        @include max-screen(991px) {
+            min-height: 100px;
+        }
+
+        @include max-screen(575px) {
+            padding-bottom: 15px;
+        }
+
+    }
+
+    .menu-scroll {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #FFF;
+
+        &.fixed {
+            position: fixed;
+            top: 0;
+            bottom: auto;
+            z-index: 9999;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        @include max-screen(991px) {
+            display: none;
+        }
+
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 65px;
+        flex-wrap: wrap;
+        padding: 0;
+
+        > li {
+
+            > a {
+                @include font-rem(300, 36, 41);
+                display: block;
+                position: relative;
+                padding-top: 12px;
+                margin-bottom: 12px;
+
+                &:hover {
+
+                    &:before {
+                        display: block;
+                    }
+
+                }
+
+            }
+
+            &:hover {
+                .sub-menu-visible {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+            }
+
+            &.level-menu {
+                > a {
+
+                    &:before {
+                        content: '';
+                    	width: 0;
+                    	height: 0;
+                    	border-left: 10px solid transparent;
+                    	border-right: 10px solid transparent;
+                    	border-bottom: 10px solid rgba(212, 210, 220, .9); ;
+                        position: absolute;
+                        bottom: -12px;
+                        left: 30%;
+                        transform: translateX(-50%);
+                        display: none;
+                    }
+
+                    &:hover {
+
+                        &:before {
+                            display: block;
+                        }
+
+                    }
+                }
+
+                &:hover {
+
+                    a:before {
+                        display: block;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .sub-menu-visible {
+            position: absolute;
+            width: calc(100% - 30px);
+            left: 15px;
+            top: 65px;
+            background-color: rgba(212, 210, 220, .9);
+            opacity: 0;
+            visibility: hidden;
+            margin: 0;
+            padding: 15px;
+            @include clearfix;
+            transition: all 0.2s ease-in-out;
+            z-index: 999;
+        }
+
+        .sub-menu {
+
+            > li.grid-item {
+                float: left;
+                width: 20%;
+
+                a {
+                    @include font-rem(400, 14, 24);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    color: #3c2313;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    &.link-bold {
+                        font-weight: 700;
+                    }
+
+                }
+
+            }
+
+            &-list {
+                padding: 0;
+                padding-bottom: 15px;
+
+                li {
+                    display: block;
+                }
+
+            }
+        }
+
+    }
+
+    @include max-screen(991px) {
+        padding-bottom: 0;
+    }
+
+}
+
+.slicknav_menu {
+	display:none;
+}
+
+@media screen and (max-width: 991px) {
+	#menu {
+		display:none;
+	}
+
+	.slicknav_menu {
+		display:block;
+	}
+}
+        

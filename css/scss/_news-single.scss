@@ -1,0 +1,274 @@
+.news_single {
+    @extend .catalog;
+    padding-bottom: 50px;
+
+    .news_single-title {
+        @extend .category-title;
+    }
+
+    .better {
+        @include font-rem(400, 14, 40);
+        font-family: Tahoma, Geneva, sans-serif;
+        width: 200px;
+    	height: 40px;
+    	border-radius: 5px 5px 0 0;
+    	background-color: #c53411;
+        position: fixed;
+        top: 40%;
+        right: 0;
+        color: #fff;
+        text-align: center;
+        transform: rotate(-90deg);
+        transform-origin: 100% 100%;
+        z-index: 10;
+
+        @include max-screen(1199px) {
+            display: none;
+        }
+
+    }
+
+    &__sorting {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        //flex-wrap: wrap;
+        align-content: center;
+
+        .sort-col-flex {
+            data {
+                display: block;
+                min-width: 160px;
+
+                @include font-rem(400, 18, 40);
+                font-family: Tahoma, Geneva, sans-serif;
+
+                @include max-screen(991px) {
+                    padding-bottom: 15px;
+                }
+
+                @include max-screen(575px) {
+                    @include font-rem(400, 12, 30);
+                }
+
+            }
+        }
+
+        .sort-col-art {
+            @include clearfix;
+
+            span {
+                @include font-rem(400, 14, 26);
+                font-family: Tahoma, Geneva, sans-serif;
+                cursor: pointer;
+                color: #666;
+                display: inline-block;
+                padding: 0 20px;
+                margin: 5px;
+                background-color: #eaeaee;
+                border: 2px solid #eaeaee;
+                transition: all 0.2s ease-in-out;
+                position: relative;
+
+                &:hover, &.active {
+                    text-decoration: none;
+                    background-color: #FFF;
+                    border-color: #000;
+                }
+
+                @include max-screen(767px) {
+                    margin: 5px 0;
+                }
+
+                @include max-screen(575px) {
+                    display: block;
+                }
+
+            }
+
+            @include max-screen(1199px) {
+                padding-bottom: 5px;
+            }
+
+            @include max-screen(575px) {
+                display: block;
+                width: 100%;
+            }
+
+        }
+
+        @include max-screen(991px) {
+            justify-content: center;
+            align-items: flex-end;
+            flex-wrap: wrap
+        }
+
+    }
+
+    &__content {
+        padding: 15px 0;
+        border-bottom: 1px solid #e8e8e8;
+        border-top: 1px solid #e8e8e8;
+
+        img {
+            float: left;
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 0 30px 15px 0;
+
+            @include max-screen(991px) {
+                float: none;
+                max-width: 9999px;
+                margin: 0 0 15px 0;
+            }
+
+        }
+
+        p {
+            @include font-rem(400, 14, 18);
+            font-family: Tahoma, Geneva, sans-serif;
+            color: #28282c;
+            padding-bottom: 15px;
+
+            @include max-screen(575px) {
+                @include font-rem(400, 12, 16);
+            }
+
+        }
+
+        ul {
+            padding: 0 0 15px 0;
+
+            li {
+                @include font-rem(400, 14, 18);
+                font-family: Tahoma, Geneva, sans-serif;
+                list-style: disc inside;
+
+                @include max-screen(575px) {
+                    @include font-rem(400, 12, 16);
+                }
+            }
+
+        }
+
+        h2 {
+            @include font-rem(400, 30, 36);
+        }
+
+    }
+
+    &__navi-new {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 15px 0;
+
+        .prev-new, .next-new {
+            position: relative;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            span {
+                @include font-rem(400, 14, 50);
+                font-family: Tahoma, Geneva, sans-serif;
+                color: #666;
+
+                @include max-screen(767px) {
+                    display: none;
+                }
+
+            }
+
+            i {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 50px;
+                height: 50px;
+                display: block;
+                background-color: #dcdde3;
+                border-radius: 50%;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+            }
+
+            @include max-screen(399px) {
+                @include font-rem(400, 13, 34); 
+            }
+
+        }
+
+        .prev-new {
+            padding-left: 64px;
+
+            i {
+                left: 0;
+
+                &:before {
+                    @extend %prev-mini;
+                }
+
+            }
+
+            @include max-screen(767px) {
+                padding-left: 0;
+            }
+
+        }
+
+        .next-new {
+            padding-right: 64px;
+
+            i {
+                right: 0;
+
+                &:before {
+                    @extend %next-mini;
+                }
+
+            }
+
+            @include max-screen(767px) {
+                padding-right: 0;
+            }
+
+        }
+
+        .return-new {
+            @include font-rem(400, 18, 40);
+            background-color: #000;
+            color: #fff;
+            display: block;
+            width: 100%;
+            height: 40px;
+            max-width: 200px;
+            text-align: center;
+
+            &:hover {
+                text-decoration: none;
+                background-color: #c53411;
+            }
+
+            @include max-screen(575px) {
+                @include font-rem(400, 16, 40);
+                max-width: 160px;
+            }
+
+        }
+
+    }
+
+}

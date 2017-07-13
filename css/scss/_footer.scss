@@ -1,0 +1,124 @@
+//////////////////////////////////////////////
+// FOOTER
+//////////////////////////////////////////////
+.site-footer {
+    background-color: #000;
+    padding: 60px 0 40px;
+
+    &__title {
+        @include font-rem(400, 24, 28);
+        padding-bottom: 15px;
+        color: $color_text_c;
+
+        @include max-screen(575px) {
+            padding-top: 20px;
+        }
+
+    }
+
+    &__menu {
+        padding: 0;
+
+        li {
+            display: block;
+
+            a {
+                @include font-rem(400, 16, 26);
+                font-family: Tahoma, Geneva, sans-serif;
+                color: $color_text_c;
+                display: inline-block;
+            }
+
+        }
+
+        @include max-screen(991px) {
+            min-height: 150px;
+        }
+
+        @include max-screen(575px) {
+            min-height: 1px;
+        }
+
+    }
+
+    &__tel {
+        color: $color_text_c;
+
+        span {
+            @include font-rem(400, 16, 26);
+            font-family: Tahoma, Geneva, sans-serif;
+            display: block;
+        }
+
+        a {
+            @include font-rem(400, 45, 50);
+            display: block;
+            transition: all 0.2s ease-in-out;
+            color: #fff;
+            padding-bottom: 10px;
+
+            &:hover {
+                text-decoration: none;
+                color: $color_text_c;
+            }
+
+        }
+
+        @include max-screen(575px) {
+            padding-top: 15px;
+        }
+
+    }
+
+    &__social {
+        padding-top: 30px;
+        @include clearfix;
+
+        a {
+            display: block;
+            float: left;
+            margin: 0 10px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.fb {
+                @extend %fb;
+            }
+
+            &.vk {
+                @extend %vk;
+            }
+
+            &.in {
+                @extend %in;
+            }
+
+        }
+
+    }
+
+    &__developer {
+        padding-top: 30px;
+        @include font-rem(400, 16, 20);
+        font-family: Tahoma, Geneva, sans-serif;
+        color: $color_text_c;
+        display: inline-block;
+
+        &:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        sup {
+            @include font-rem(400, 12, 14);
+        }
+
+    }
+
+}

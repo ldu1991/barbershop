@@ -1,0 +1,525 @@
+.cart {
+    @extend .catalog;
+    padding-bottom: 50px;
+
+    .cart-title {
+        @extend .category-title;
+    }
+
+    .better {
+        @include font-rem(400, 14, 40);
+        font-family: Tahoma, Geneva, sans-serif;
+        width: 200px;
+    	height: 40px;
+    	border-radius: 5px 5px 0 0;
+    	background-color: #c53411;
+        position: fixed;
+        top: 40%;
+        right: 0;
+        color: #fff;
+        text-align: center;
+        transform: rotate(-90deg);
+        transform-origin: 100% 100%;
+        z-index: 10;
+
+        @include max-screen(1199px) {
+            display: none;
+        }
+
+    }
+
+    &__list {
+        width: 100%;
+        border-collapse: collapse;
+        vertical-align: middle;
+        margin-top: 30px;
+
+        thead {
+            @include font-rem(400, 20, 50);
+            background-color: #5f606d;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+
+            th {
+                font-weight: 400;
+            }
+
+            @include max-screen(991px) {
+                display: none;
+            }
+
+        }
+
+        tbody {
+
+            tr {
+                @include max-screen(991px) {
+                    border-bottom: 1px solid #eaeaee;
+                    padding: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-content: space-between;
+                    flex-wrap: wrap;
+                    position: relative;
+                    padding-left: 110px;
+
+                    @include max-screen(400px) {
+                        padding-left: 80px;
+                    }
+
+                }
+
+            }
+
+            td {
+                padding: 10px 0;
+                border-bottom: 1px solid #eaeaee;
+                position: relative;
+
+                @include max-screen(991px) {
+                    border-bottom: 0;
+                }
+
+/*                &:before {
+                    content: attr(data-label);
+                    @include font-rem(400, 14, 18);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    display: none;
+
+                    @include max-screen(991px) {
+                        display: inline-block;
+                    }
+
+                }*/
+
+            }
+
+            .list-photo {
+
+                &_img {
+                    display: inline-block;
+                    width: 95px;
+                    height: 95px;
+                    background-color: #f1f1f1;
+                    text-align: center;
+
+                    img {
+                        width: auto;
+                        height: auto;
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+
+                    @include max-screen(400px) {
+                        width: 70px;
+                        height: 70px;
+                    }
+
+                }
+
+                @include max-screen(991px) {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                }
+
+            }
+
+            .list-name {
+                padding: 0 10px 0 35px;
+
+                h3 {
+                    @include font-rem(400, 30, 32);
+                    display: block;
+
+                    @include max-screen(991px) {
+                        display: inline-block;
+                    }
+
+                    @include max-screen(767px) {
+                        @include font-rem(400, 22, 24);
+                    }
+
+                    @include max-screen(575px) {
+                        @include font-rem(400, 18, 22);
+                    }
+
+                    @include max-screen(379px) {
+                        @include font-rem(400, 15, 18);
+                    }
+
+                    @include max-screen(340px) {
+                        @include font-rem(400, 13, 17);
+                    }
+
+                }
+
+                @include max-screen(991px) {
+                    padding: 10px 0 0;
+                }
+
+                @include max-screen(479px) {
+                    max-width: 130px;
+                }
+
+                @include max-screen(379px) {
+                    max-width: 90px;
+                }
+
+            }
+
+            .list-price {
+                position: relative;
+
+                .price {
+                    @include font-rem(400, 22, 28);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    color: #000;
+                    white-space: nowrap;
+                    text-align: center;
+
+                    &-old {
+                        @include font-rem(400, 18, 24);
+                        color: #7c7c7c;
+                        text-decoration: line-through;
+                        display: block;
+                        text-align: center;
+
+                        @include max-screen(575px) {
+                            @include font-rem(400, 16, 20);
+                        }
+
+                        @include max-screen(479px) {
+                            @include font-rem(400, 14, 18);
+                        }
+
+                    }
+
+                    @include max-screen(991px) {
+                        display: inline-block;
+                    }
+
+                    @include max-screen(575px) {
+                        @include font-rem(400, 18, 22);
+                    }
+
+                    @include max-screen(479px) {
+                        @include font-rem(400, 16, 20);
+                    }
+
+                    @include max-screen(479px) {
+                        @include font-rem(400, 14, 20);
+                    }
+
+                }
+
+                @include max-screen(991px) {
+                    padding-right: 0;
+                }
+
+            }
+
+            .list-quantity {
+                text-align: center;
+
+                .quantity {
+                    display: inline-block;
+                    min-width: 130px;
+                    @include clearfix
+
+                    .minus, .plus {
+                        width: 30px;
+                        height: 30px;
+                        display: block;
+                        float: left;
+                        cursor: pointer;
+                        border: 1px solid #5f606d;
+
+                        @include max-screen(400px) {
+                            width: 24px;
+                            height: 24px;
+                        }
+
+                    }
+
+                    .minus {
+                        background: url(../images/minus.jpg) no-repeat center center;
+                    }
+
+                    .plus {
+                        background: url(../images/plus.jpg) no-repeat center center;
+                    }
+
+                    .quantity_imput {
+                        @include font-rem(400, 21, 30);
+                        display: inline-block;
+                        width: 58px;
+                        text-align: center;
+                        color: #666;
+                        height: 30px;
+                        float: left;
+                        background-color: #fff;
+                        border: 1px solid #babbc8;
+                        margin: 0 5px;
+
+                        @include max-screen(400px) {
+                            @include font-rem(400, 14, 24);
+                            width: 30px;
+                            height: 24px;
+                        }
+
+                    }
+
+                    @include max-screen(400px) {
+                        min-width: 90px;
+                    }
+
+                }
+
+                @include max-screen(991px) {
+                    order: 2;
+                }
+
+            }
+
+            .list-value {
+                text-align: center;
+                @include font-rem(400, 22, 28);
+                font-family: Tahoma, Geneva, sans-serif;
+                color: #000;
+                white-space: nowrap;
+                text-align: center;
+
+                @include max-screen(991px) {
+                    display: none;
+                }
+
+            }
+
+            .list-value-adaptiv {
+                text-align: center;
+                @include font-rem(400, 22, 28);
+                font-family: Tahoma, Geneva, sans-serif;
+                color: #000;
+                white-space: nowrap;
+                text-align: center;
+                display: none;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: translateY(100%);
+
+                &:before {
+                    content: attr(data-label);
+                    @include font-rem(400, 14, 18);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    display: block;
+
+                    @include max-screen(479px) {
+                        @include font-rem(400, 11, 13);
+                    }
+
+                    @include max-screen(379px) {
+                        @include font-rem(400, 9, 13);
+                    }
+
+                }
+
+                @include max-screen(991px) {
+                    display: block;
+                }
+
+                @include max-screen(479px) {
+                    @include font-rem(400, 16, 20);
+                }
+
+                @include max-screen(479px) {
+                    @include font-rem(400, 14, 20);
+                }
+
+            }
+
+            .list-remove {
+                text-align: center;
+                padding: 0 15px;
+
+                button {
+                    border: 0;
+                    display: inline-block;
+                    background-color: transparent;
+                    @extend %remove;
+                }
+
+                @include max-screen(991px) {
+                    padding: 10px;
+                }
+
+            }
+
+        }
+
+        @include max-screen(991px) {
+            display: block;
+
+        	tbody, td, tr {
+        		display: block;
+        	}
+
+        }
+
+
+
+    }
+
+    &__collaterals {
+        padding-top: 35px;
+
+        .coupon {
+            display: block;
+            padding-bottom: 25px;
+            @include clearfix;
+
+            &__row {
+                margin-left: -5px;
+                margin-right: -5px;
+            }
+
+            [class*="xs-"] {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            span {
+                display: block;
+                @include font-rem(700, 20, 22);
+                color: #666;
+                padding-bottom: 10px;
+            }
+
+            input[type="text"] {
+                @include font-rem(400, 14, 22);
+                font-family: Tahoma, Geneva, sans-serif;
+                display: inline-block;
+                width: 100%;
+                height: 26px;
+                border: 2px solid #b8b9c6;
+                background-color: #FFF;
+                padding: 0 15px;
+                color: #000;
+            }
+
+            input[type="submit"] {
+                @include font-rem(400, 18, 26);
+                border: 0;
+                background-color: #b8b9c6;
+                color: #fff;
+                display: inline-block;
+                width: 100%;
+                height: 26px;
+                max-width: 160px;
+                position: relative;
+
+                @include max-screen(575px) {
+                    max-width: 100%;
+                }
+
+            }
+
+        }
+
+        .common, .discount {
+            @include font-rem(400, 18, 26);
+            color: #7a7a7a;
+            font-family: Tahoma, Geneva, sans-serif;
+            @include clearfix;
+
+            span {
+                float: left;
+
+                &.total_price {
+                    text-align: center;
+                    @include font-rem(400, 22, 28);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    color: #000;
+                    white-space: nowrap;
+                    text-align: right;
+                    float: right;
+
+                    @include max-screen(379px) {
+                        @include font-rem(400, 18, 28);
+                        float: none;
+                        padding-left: 15px;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .total {
+            @include clearfix;
+            padding-top: 20px;
+
+            .total_chek {
+                @include font-rem(400, 24, 38);
+                font-family: Tahoma, Geneva, sans-serif;
+                float: left;
+
+                span {
+                    @include font-rem(400, 36, 38);
+
+                    @include max-screen(575px) {
+                        @include font-rem(400, 26, 34);
+                    }
+                }
+
+                @include max-screen(575px) {
+                    @include font-rem(400, 18, 34);
+                    float: none;
+                }
+
+            }
+
+            .submit {
+                float: right;
+
+                input[type="submit"] {
+                    @include font-rem(400, 18, 40);
+                    border: 0;
+                    background-color: #000;
+                    color: #fff;
+                    display: block;
+                    width: 210px;
+                    height: 40px;
+                    max-width: 160px;
+                    position: relative;
+
+                    @include max-screen(379px) {
+                        margin: 0 auto;
+                    }
+
+                }
+
+                @include max-screen(575px) {
+                    float: none;
+                    padding-top: 15px;
+                }
+
+            }
+
+        }
+
+    }
+
+    @include max-screen(575px) {
+        padding-bottom: 10px;
+    }
+
+}

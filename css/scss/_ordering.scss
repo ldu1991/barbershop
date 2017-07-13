@@ -1,0 +1,290 @@
+.ordering {
+    @extend .catalog;
+    padding-bottom: 50px;
+
+    .ordering-title {
+        @extend .category-title;
+    }
+
+    .better {
+        @include font-rem(400, 14, 40);
+        font-family: Tahoma, Geneva, sans-serif;
+        width: 200px;
+    	height: 40px;
+    	border-radius: 5px 5px 0 0;
+    	background-color: #c53411;
+        position: fixed;
+        top: 40%;
+        right: 0;
+        color: #fff;
+        text-align: center;
+        transform: rotate(-90deg);
+        transform-origin: 100% 100%;
+        z-index: 10;
+
+        @include max-screen(1199px) {
+            display: none;
+        }
+
+    }
+
+    &__section {
+        padding: 15px 0 35px;
+        max-width: 660px;
+        @include clearfix;
+
+        &.section-wight {
+            max-width: 900px;
+            padding-bottom: 0;
+        }
+
+        &--title {
+            @include font-rem(400, 24, 40);
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 10px;
+        }
+
+        .simple {
+            display: block;
+            padding: 5px 12px;
+            width: 50%;
+            float: left;
+
+            .title {
+                @include font-rem(400, 14, 20);
+                font-family: Tahoma, Geneva, sans-serif;
+                display: block;
+                color: #666;
+                padding-bottom: 3px;
+            }
+
+            @include max-screen(767px) {
+                width: 100%;
+            }
+
+        }
+
+        .city {
+            width: 100%;
+        }
+
+        .home, .house {
+            width: 25%;
+
+            @include max-screen(767px) {
+                width: 100%;
+            }
+
+        }
+
+        [type="text"],
+        [type="password"],
+        [type="email"] {
+            @include font-rem(400, 14, 26);
+            font-family: Tahoma, Geneva, sans-serif;
+            display: block;
+            width: 100%;
+            height: 30px;
+            border: 2px solid #b8b9c6;
+            background-color: #FFF;
+            padding: 0 15px;
+            color: #000;
+        }
+
+        .textarea {
+            float: left;
+            width: 73.33333%;
+
+            .title {
+                @include font-rem(400, 14, 20);
+                font-family: Tahoma, Geneva, sans-serif;
+                display: block;
+                color: #666;
+                padding-bottom: 3px;
+            }
+
+            textarea {
+                @include font-rem(400, 14, 22);
+                font-family: Tahoma, Geneva, sans-serif;
+                display: block;
+                width: 100%;
+                height: 140px;
+                border: 2px solid #b8b9c6;
+                background-color: #FFF;
+                padding: 0 15px;
+                color: #000;
+            }
+
+            @include max-screen(991px) {
+                width: 100%;
+                float: none;
+            }
+
+        }
+
+        .total {
+            @include clearfix;
+            padding-top: 20px;
+            width: 26.66666%;
+            float: left;
+            padding-left: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            min-height: 160px;
+
+            .total_chek {
+                @include font-rem(400, 22, 38);
+                font-family: Tahoma, Geneva, sans-serif;
+                display: block;
+
+                span {
+                    @include font-rem(400, 34, 38);
+
+                    @include max-screen(575px) {
+                        @include font-rem(400, 26, 34);
+                    }
+                }
+
+                @include max-screen(575px) {
+                    @include font-rem(400, 18, 34);
+                }
+
+            }
+
+            .submit {
+                display: block;
+                width: 100%;
+
+                input[type="submit"] {
+                    @include font-rem(400, 24, 55);
+                    border: 0;
+                    background-color: #000;
+                    color: #fff;
+                    display: block;
+                    width: 100%;
+                    height: 55px;
+                    position: relative;
+                }
+
+            }
+
+            @include max-screen(991px) {
+                width: 100%;
+                float: none;
+                padding-left: 0;
+                min-height: 1px;
+            }
+
+        }
+
+        .delivery {
+
+            &__item {
+                @include clearfix;
+                position: relative;
+                padding: 15px 0;
+
+                .radio {
+                    cursor: pointer;
+                    @include clearfix;
+                    display: block;
+
+                    input[type="radio"] {
+                        display: none;
+                    }
+
+                    span {
+                        display: inline-block;
+                        width: 28px;
+                        height: 28px;
+                        border-radius: 50%;
+                        border: 2px solid #b8b9c6;
+                        background-color: #FFF;
+                        float: left;
+                    }
+
+                    input[type="radio"]:checked + span {
+                        border-color: #000;
+                        background-color: #000;
+                    }
+
+                    h4 {
+                        @include font-rem(400, 20, 28);
+                        padding-left: 17px;
+                        float: left;
+                    }
+
+                }
+
+
+                &--text {
+                    @include font-rem(400, 13, 16);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    width: 72%;
+                    float: left;
+                    color: #28282c;
+                    padding: 10px 0 0 45px;
+
+                    @include max-screen(767px) {
+                        width: 100%;
+                        float: none;
+                    }
+
+                }
+
+                &--price {
+                    @include font-rem(400, 14, 32);
+                    font-family: Tahoma, Geneva, sans-serif;
+                    color: #666;
+                    width: 28%;
+                    float: left;
+                    padding-left: 15px;
+
+                    b {
+                        @include font-rem(400, 30, 32);
+                        color: #000;
+                        display: inline-block;
+                    }
+
+                    @include max-screen(767px) {
+                        width: 100%;
+                        float: none;
+                        padding-left: 45px;
+                    }
+
+                }
+
+                &--list {
+                    width: 100%;
+                    float: left;
+                    padding-left: 45px;
+                    padding-top: 10px;
+
+                    .title-delivery-list {
+                        @include font-rem(400, 16, 30);
+                        font-family: Tahoma, Geneva, sans-serif;
+                        padding-right: 15px;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .quantity-delivery {
+            @include font-rem(400, 16, 18);
+            font-family: Tahoma, Geneva, sans-serif;
+            color: #666;
+        }
+
+    }
+
+}
+
+.input-row {
+    margin-left: -12px;
+    margin-right: -12px;
+    @include clearfix;
+}
